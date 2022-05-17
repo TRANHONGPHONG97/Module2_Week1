@@ -8,6 +8,7 @@ public class MergerArr {
         Scanner scanner = new Scanner(System.in);
         int[] arr1 = new int[2];
         int[] arr2 = new int[3];
+        int[] arr3 = new int[5];
         System.out.print("mang 1: " + "\n");
         for (int i = 0; i < arr1.length; i++) {
             System.out.print("phan tu: " + (i + 1) + ": ");
@@ -18,7 +19,6 @@ public class MergerArr {
             System.out.print("phan tu: " + (j + 1) + ": ");
             arr2[j] = scanner.nextInt();
         }
-        int[] arr3 = new int[arr1.length + arr2.length];
         for (int i = 0; i < arr1.length; i++) {
             arr3[i] = arr1[i];
         }
