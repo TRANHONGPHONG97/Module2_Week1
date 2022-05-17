@@ -2,7 +2,7 @@ package ArrayJava;
 import java.util.Scanner;
 public class FindElementArray {
     public static void main(String[] args) {
-        String [] students = {"Nam", "Tri", "Loc", " Minh"};
+        String [] students = {"Nam", "Tri", "Loc", "Minh"};
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap ten hoc sinh: ");
         String input_name = scanner.nextLine();
