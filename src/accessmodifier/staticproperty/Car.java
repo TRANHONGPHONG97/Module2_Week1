@@ -9,4 +9,12 @@ public class Car {
         this.engine = engine;
         numberOfCars++;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", engine='" + engine + '\'' + ", number: " + numberOfCars +
+                '}';
+    }
 }

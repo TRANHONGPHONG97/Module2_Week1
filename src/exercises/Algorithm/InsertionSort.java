@@ -1,4 +1,4 @@
-package Exercises;
+package Algorithm;
 public class InsertionSort {
     public static void sort(int arr[]) {
         for (int i = 1; i < arr.length; ++i) {
@@ -20,9 +20,8 @@ public class InsertionSort {
         int arr[] = {8, 1, 4, 9, 6};
         System.out.println("Mảng ban đầu:");
         printArray(arr);
-//        InsertionSort ob = new InsertionSort();
-//
-//        ob.sort(arr);
+        InsertionSort ob = new InsertionSort();
+        ob.sort(arr);
         System.out.println("Mảng sau khi sắp xếp:");
         printArray(arr);
     }
