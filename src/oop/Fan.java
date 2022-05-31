@@ -1,4 +1,4 @@
-package Oop;
+package oop;
 
 public class Fan {
     private final int SLOW = 1;

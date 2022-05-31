@@ -1,2 +1,6 @@
-package abstracts.animal_interfaceEdible;public class Edible {
-}
+package abstracts.animal_interfaceEdible;
+
+public interface Edible {
+    String howToEat();
+    }
+

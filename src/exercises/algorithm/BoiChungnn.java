@@ -1,4 +1,4 @@
-package exercises;
+package exercises.algorithm;
 public class BoiChungnn {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5};

@@ -1,4 +1,4 @@
-package Oop;
+package oop;
 import java.util.Scanner;
 public class QuadraticEquation {
     private double a, b, c, r1, r2, r3;

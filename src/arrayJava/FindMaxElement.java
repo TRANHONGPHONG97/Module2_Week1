@@ -1,4 +1,4 @@
-package ArrayJava;
+package arrayJava;
 import java.util.Scanner;
 public class FindMaxElement {
     public static void main(String[] args) {

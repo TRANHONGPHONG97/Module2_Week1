@@ -1,4 +1,4 @@
-package Oop;
+package oop;
 
 import java.util.Scanner;
 public class Rectangle {

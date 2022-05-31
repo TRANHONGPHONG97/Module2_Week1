@@ -1,4 +1,4 @@
-package exercises;
+package exam;
 
         public class Students {
             public  String name;

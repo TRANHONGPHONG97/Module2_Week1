@@ -4,7 +4,7 @@ abstract class Tiger {
     abstract void run();
 
 }
-class Lion extends  Tiger {
+class Lion extends Tiger {
     @Override
     void run() {
         System.out.println("Run fast");

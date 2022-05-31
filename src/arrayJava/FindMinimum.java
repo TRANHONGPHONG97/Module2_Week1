@@ -1,4 +1,4 @@
-package ArrayJava;
+package arrayJava;
 
 public class FindMinimum {
     public static void main(String[] args) {

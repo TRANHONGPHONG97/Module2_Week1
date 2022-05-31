@@ -1,4 +1,4 @@
-package IntroductiontoJava;
+package introductiontoJava;
 import java.util.Scanner;
 public class OperatorExpression {
     public static void main(String[] args) {

@@ -1,9 +1,9 @@
-package Oop;
+package oop;
 
 public class StopWatch {
     private long startTime;
     private long endTime;
-
+public void  StopWatch(){}
     public void start() {
         this.startTime = System.currentTimeMillis();
     }
@@ -21,15 +21,15 @@ public class StopWatch {
     }
 
     public long getElapsedTime() {
-        long elapsed;
-        elapsed = (endTime - startTime);
+        long elapsed = (endTime - startTime);
         return elapsed;
     }
 
     public static void main(String[] args) {
         StopWatch watch = new StopWatch();
-        System.out.printf("Start: %d\n", watch.getStartTime());
+        watch.start();
         watch.stop();
+        System.out.printf("Start: %d\n", watch.getStartTime());
         System.out.printf("End: %d\n", watch.getEndTime());
         System.out.printf("Elapsed Time: %d", watch.getElapsedTime());
     }

@@ -1,4 +1,4 @@
-package IntroductiontoJava;
+package introductiontoJava;
 
 public class VariableDataType {
     public static void main(String[] args) {
