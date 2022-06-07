@@ -13,7 +13,7 @@ public class ProductView {
     public void run() {
         int choice;
         do {
-            Menu.mainMenu();
+            Menu.showMenu();
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
@@ -60,9 +60,7 @@ public class ProductView {
 
     public static void main(String[] args) {
         ProductView productView = new ProductView();
-        productView.addProduct();
-        productView.editProduct();
-        productView.removeProduct();
+
     }
 
 
@@ -108,7 +106,7 @@ public class ProductView {
                                     product.setPrice(newPrice);
                                     break;
                                 case '0':
-                                    Menu.mainMenu();
+                                    Menu.showMenu();
                                     break;
                             }
                         } while (choice != 0);
