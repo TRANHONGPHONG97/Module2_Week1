@@ -46,6 +46,6 @@ public class Square extends Shape implements Colorable {
 
     @Override
     public String howToColor() {
-        return "LAAAAAAAAAAAAA";
+        return "Màu xanh đẹp";
     }
 }
