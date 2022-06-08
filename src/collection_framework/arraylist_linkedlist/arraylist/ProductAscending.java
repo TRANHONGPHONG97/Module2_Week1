@@ -9,7 +9,7 @@ public class ProductAscending implements Comparator<Product> {
         double result = o1.getPrice() - o2.getPrice();
 
         if (result == 0) {
-            return (int) (o1.getId() - o2.getId());
+            return (o1.getId() - o2.getId());
         }
         if (result > 0)
             return 1;

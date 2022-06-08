@@ -36,23 +36,22 @@ public class ProductManager {
     }
 
     public void addProduct() {
-        System.out.println("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        do {
+            System.out.println("Nhập id (id phải lớn hơn 0 và không được trùng id): ");
+            id = Integer.parseInt(scanner.nextLine());
+        } while (id <= 0 || checkID(id));
 
-        if (checkID(id)) {
-            System.out.println("ID " + id + " đã tồn tại vui lòng nhập lại!");
-            addProduct();
-            return;
-        }
-        if (!checkID(id)) {
-            System.out.println("Nhập tên sản phẩm: ");
-            String name = scanner.nextLine();
-            System.out.println("Nhập giá: ");
-            double price = Double.parseDouble(scanner.nextLine());
-
-            listProduct.add(new Product(id, name, (int) price));
-            System.out.println("Đã thêm thành công!");
-        }
+        String name;
+        System.out.println("Nhập tên sản phẩm: ");
+        name = scanner.nextLine();
+        double price;
+        do {
+            System.out.println("Nhập giá (giá phải lớn hơn 0): ");
+            price = Double.parseDouble(scanner.nextLine());
+        } while (price < 0);
+        listProduct.add(new Product(id, name, price));
+        System.out.println("Đã thêm thành công!");
     }
 
 
@@ -63,46 +62,43 @@ public class ProductManager {
         if (checkID(id)) {
             menuEditProductID();
             for (Product product : listProduct) {
-                int choice = Integer.parseInt(scanner.nextLine());
-                switch (choice) {
-                    case 1:
-                        System.out.println("Nhập tên mới: ");
-                        String name = scanner.nextLine();
-                        product.setName(name);
-                        break;
-                    case 2:
-                        double price = 0;
-                        do {
-                            System.out.println("Nhập giá mới: ");
-                            price = Double.parseDouble(scanner.nextLine());
-                            product.setPrice((int) price);
-                            while (price <= 0) {
-                                System.out.println("Giá không hợp lên vui lòng nhập lại!");
+                if (id == product.getId()) {
+                    int choice = Integer.parseInt(scanner.nextLine());
+                    switch (choice) {
+                        case 1:
+                            System.out.println("Nhập tên mới: ");
+                            String name = scanner.nextLine();
+                            product.setName(name);
+                            showProducts();
+                            break;
+                        case 2:
+                            double price;
+                            do {
+                                System.out.println("Nhập giá mới: ");
                                 price = Double.parseDouble(scanner.nextLine());
-                                product.setPrice((int) price);
-                            }
-                        } while (price <= 0);
-                        break;
-                    case 3:
-                        System.out.println("Nhập tên mới: ");
-                        String name1 = scanner.nextLine();
-                        System.out.println("Nhập giá mới: ");
-                        double price1 = Double.parseDouble(scanner.nextLine());
-                        product.setName(name1);
-                        product.setPrice((int) price1);
-                        break;
-                    case 4:
-                        editProductId();
-                        break;
-                    case 5:
-                        mainMenu();
-                        break;
-                    case 6:
-                        System.exit(0);
-                        break;
+                                product.setPrice(price);
+                                while (price <= 0) {
+                                    System.out.println("Giá không hợp lên vui lòng nhập lại!");
+                                    price = Double.parseDouble(scanner.nextLine());
+                                    product.setPrice(price);
+                                }
+                            } while (price <= 0);
+                            showProducts();
+                            break;
+                        case 3:
+                            editProductId();
+                            break;
+                        case 4:
+                            mainMenu();
+                            break;
+                        case 5:
+                            System.exit(5);
+                        default:
+                            System.out.println("Nhập sai, mời chọn lại chức năng!");
+                    }
+                    System.out.println("Sửa thành công!");
+                    break;
                 }
-                System.out.println("Sửa thành công!");
-                break;
             }
         }
         if (!checkID(id)) {
@@ -115,14 +111,13 @@ public class ProductManager {
         System.out.println("=========    menuEditProductID    =========");
         System.out.println("==         1: Sửa tên                    ==");
         System.out.println("==         2: Sửa giá                    ==");
-        System.out.println("==         3: Sửa tên và giá             ==");
-        System.out.println("==         4: Chọn lại ID muốn sửa       ==");
-        System.out.println("==         5: Quay lại mainMenu          ==");
-        System.out.println("==         6: Thoát                      ==");
+        System.out.println("==         3: Chọn lại ID muốn sửa       ==");
+        System.out.println("==         4: Quay lại mainMenu          ==");
+        System.out.println("==         5: Thoát                      ==");
         System.out.println("===========================================");
     }
 
-    public void removeProductId() {
+    public void removeProductID() {
         System.out.println("Nhập ID muốn xóa: ");
         int id = Integer.parseInt(scanner.nextLine());
 
@@ -137,7 +132,7 @@ public class ProductManager {
         }
         if (!flag) {
             System.out.println("Không tìm thấy ID này, vui lòng nhập lại ID: ");
-            removeProductId();
+            removeProductID();
         }
     }
 
@@ -174,6 +169,19 @@ public class ProductManager {
     }
 
 
+    public static void showMenu() {
+        System.out.println("=========     PRODUCTS MENU      =============");
+        System.out.println("==      1. Thêm sản phẩm                    ==");
+        System.out.println("==      2. Sửa thông tin sản phẩm           ==");
+        System.out.println("==      3. Xóa sản phẩm theo ID             ==");
+        System.out.println("==      4. Hiển thị danh sách sản phẩm      ==");
+        System.out.println("==      5. Tìm kiếm sản phẩm theo tên       ==");
+        System.out.println("==      6. Sắp xếp sản phẩm tăng dần        ==");
+        System.out.println("==      7. Sắp xếp sản phẩm giảm dần        ==");
+        System.out.println("==      0. Thoát                            ==");
+        System.out.println("==============================================");
+    }
+
     public void mainMenu() {
         do {
             showMenu();
@@ -181,16 +189,16 @@ public class ProductManager {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    showProducts();
-                    break;
-                case 2:
                     addProduct();
                     break;
-                case 3:
+                case 2:
                     editProductId();
                     break;
+                case 3:
+                    removeProductID();
+                    break;
                 case 4:
-                    removeProductId();
+                    showProducts();
                     break;
                 case 5:
                     searchProductName();
@@ -209,19 +217,6 @@ public class ProductManager {
                     break;
             }
         } while (true);
-    }
-
-    public static void showMenu() {
-        System.out.println("=========     PRODUCTS MENU      =============");
-        System.out.println("==      1. Hiển thị danh sách sản phẩm      ==");
-        System.out.println("==      2. Thêm sản phẩm                    ==");
-        System.out.println("==      3. Sửa thông tin sản phẩm           ==");
-        System.out.println("==      4. Xóa sản phẩm theo ID             ==");
-        System.out.println("==      5. Tìm kiếm sản phẩm theo tên       ==");
-        System.out.println("==      6. Sắp xếp sản phẩm tăng dần        ==");
-        System.out.println("==      7. Sắp xếp sản phẩm giảm dần        ==");
-        System.out.println("==      8. Thoát                            ==");
-        System.out.println("==============================================");
     }
 }
 
