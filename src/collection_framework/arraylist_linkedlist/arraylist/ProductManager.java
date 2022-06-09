@@ -11,10 +11,10 @@ public class ProductManager {
 
     public ProductManager() {
         listProduct = new ArrayList<>();
-        listProduct.add(new Product(1, "Áo", 55000));
-        listProduct.add(new Product(2, "Quần", 45000));
-        listProduct.add(new Product(3, "Găng tay", 79000));
-        listProduct.add(new Product(4, "Giày ", 300000));
+        listProduct.add(new Product(1, "Bò nướng lá lốt", 70000));
+        listProduct.add(new Product(2, "Bắp chiên bơ", 30000));
+        listProduct.add(new Product(3, "Rau muống xào tỏi", 25000));
+        listProduct.add(new Product(4, "Cá lóc um măng", 120000));
     }
 
     public void showProducts() {
@@ -168,7 +168,6 @@ public class ProductManager {
         showProducts();
     }
 
-
     public static void showMenu() {
         System.out.println("=========     PRODUCTS MENU      =============");
         System.out.println("==      1. Thêm sản phẩm                    ==");
@@ -176,10 +175,40 @@ public class ProductManager {
         System.out.println("==      3. Xóa sản phẩm theo ID             ==");
         System.out.println("==      4. Hiển thị danh sách sản phẩm      ==");
         System.out.println("==      5. Tìm kiếm sản phẩm theo tên       ==");
-        System.out.println("==      6. Sắp xếp sản phẩm tăng dần        ==");
-        System.out.println("==      7. Sắp xếp sản phẩm giảm dần        ==");
+        System.out.println("==      6. Sắp xếp sản phẩm                 ==");
         System.out.println("==      0. Thoát                            ==");
         System.out.println("==============================================");
+    }
+
+    public void sortByPrice() {
+        System.out.println("======     SORT BY PRICE     =======");
+        System.out.println("=   1. Sắp xếp sản phẩm tăng dần   =");
+        System.out.println("=   2. Sắp xếp sản phẩm tăng dần   =");
+        System.out.println("=   3. Quay lại MAIN MENU          =");
+        System.out.println("=   4. Thoát                       =");
+        System.out.println("====================================");
+        int choice;
+        do {
+            System.out.print("Chọn chức năng: ");
+            Scanner sc = new Scanner(System.in);
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    ascending();
+                    break;
+                case 2:
+                    decrease();
+                    break;
+                case 3:
+                    mainMenu();
+                    break;
+                case 4:
+                    System.exit(4);
+                    break;
+                default:
+                    System.out.println("Nhập sai, mời nhập lại!");
+            }
+        } while (true);
     }
 
     public void mainMenu() {
@@ -204,17 +233,13 @@ public class ProductManager {
                     searchProductName();
                     break;
                 case 6:
-                    ascending();
+                    sortByPrice();
                     break;
-                case 7:
-                    decrease();
-                    break;
-                case 8:
+                case 0:
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Nhập sai, mời chọn lại chức năng: ");
-                    break;
+                    System.out.print("Nhập sai, mời chọn lại chức năng: ");
             }
         } while (true);
     }
