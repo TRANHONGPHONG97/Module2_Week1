@@ -8,7 +8,7 @@ public class ProductDecrease implements Comparator<Product> {
         double result = o2.getPrice() - o1.getPrice();
 
         if(result == 0){
-            return (o2.getId() - o1.getId());
+            return (int) (o2.getId() - o1.getId());
         }
         if (result > 0){
             return 1;

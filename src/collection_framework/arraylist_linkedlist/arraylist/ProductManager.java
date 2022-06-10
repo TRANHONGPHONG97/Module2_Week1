@@ -21,7 +21,7 @@ public class ProductManager {
         System.out.println("============= showProduct =============");
         System.out.printf("%-12s%-20s%-30s\n", "ID", "NameProduct", "Price");
         for (Product product : listProduct) {
-            System.out.printf("%-12s%-20s%-30s\n", product.getId(), product.getName(), product.getPrice());
+            System.out.printf("%-12s%-20s%-30s\n", product.getId(), product.getTitle(), product.getPrice());
         }
         System.out.println("=======================================");
     }
@@ -68,7 +68,7 @@ public class ProductManager {
                         case 1:
                             System.out.println("Nhập tên mới: ");
                             String name = scanner.nextLine();
-                            product.setName(name);
+                            product.setTitle(name);
                             showProducts();
                             break;
                         case 2:
@@ -143,7 +143,7 @@ public class ProductManager {
         List<Product> listSearch = new ArrayList<>();
 
         for (int i = 0; i < listProduct.size(); i++) {
-            if (listProduct.get(i).getName().toLowerCase().contains(name)) {
+            if (listProduct.get(i).getTitle().toLowerCase().contains(name)) {
                 listSearch.add(listProduct.get(i));
             }
         }

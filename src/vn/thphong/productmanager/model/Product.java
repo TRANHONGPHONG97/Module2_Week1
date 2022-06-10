@@ -1,32 +1,33 @@
-package collection_framework.arraylist_linkedlist.arraylist;
+package vn.thphong.productmanager.model;
 
-
-public class Product extends vn.thphong.productmanager.model.Product {
-    private int id;
-    private String name;
-
+public class Product {
+    private long id;
+    private String title;
     private double price;
 
-    public Product(int id, String name,double price) {
+    public Product(long id, String title, double price) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.price = price;
+    }
+
+    public Product() {
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
     public String getTitle() {
-        return name;
+        return title;
     }
 
     public void setTitle(String title) {
-        this.name = title;
+        this.title = title;
     }
 
     public double getPrice() {
@@ -39,11 +40,10 @@ public class Product extends vn.thphong.productmanager.model.Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Product_1[" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + title + '\'' +
                 ", price=" + price +
-                '}';
+                ']';
     }
 }
-
